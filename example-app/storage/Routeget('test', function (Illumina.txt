@@ -1,0 +1,20 @@
+Route::get('/test', function (\Illuminate\Http\Request $request) {
+//    Inserting data to databases
+    \DB::table('posts')->insert([
+        'title' => 'Hello World',
+        'content' => 'Hello World',
+        'status' => 'draft',
+        'priority' => 1,
+    ]);
+
+    \App\Models\Post::create([
+        'title' => 'Hello World',
+        'content' => 'Hello World',
+        'status' => 'draft',
+        'priority' => 1,
+    ]);
+
+//    Updating data to databases
+
+    \DB::table('posts')->where('id', 1)->update([
+        'title' => $request->title,
