@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthContoller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\landingController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthContoller::class, 'register'])->name('register');
     Route::post('/register', [AuthContoller::class, 'registerPost'])->name('register');
-    Route::get('/login', [AuthContoller::class, 'login'])->name('login');
-    Route::post('/login', [AuthContoller::class, 'loginPost'])->name('login');
+    Route::get('/', [AuthContoller::class, 'login'])->name('login');
+    Route::post('/', [AuthContoller::class, 'loginPost'])->name('login');
 });
 
 Route::group(['middleware' => 'auth'], function () {
